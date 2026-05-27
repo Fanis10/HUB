@@ -420,67 +420,8 @@
 
 <script>
 	// Stages
-	// if (window.innerWidth >= 993) {
-	//     const groups = gsap.utils.toArray(".stages__group");
-
-	//     groups.forEach((group) => {
-
-	//         const icons = group.querySelectorAll(".stages__item-icon");
-
-	//         gsap.set(icons, {
-	//             x: "-120%",
-	//             opacity: 0,
-	//         });
-
-	//         const tl = gsap.timeline({
-	//             scrollTrigger: {
-	//                 trigger: group,
-	//                 start: "top 80%",
-	//                 toggleActions: "play none none none"
-	//             }
-	//         });
-
-	//         tl.to(icons, {
-	//             x: "0%",
-	//             opacity: 1,
-	//             duration: 1,
-	//             ease: "power4.out",
-
-	//             stagger: {
-	//                 each: 0.35,
-	//                 from: "end"
-	//             }
-	//         });
-
-	//         tl.add(() => {
-
-	//             const jumpTl = gsap.timeline({
-	//                 repeat: -1,
-	//                 repeatDelay: 3
-	//             });
-
-	//             icons.forEach((icon) => {
-
-	//                 jumpTl.to(icon, {
-	//                     y: "-50%",
-	//                     duration: 0.3,
-	//                     ease: "power2.out"
-	//                 });
-
-	//                 jumpTl.to(icon, {
-	//                     y: "0%",
-	//                     duration: 0.3,
-	//                     ease: "power2.in"
-	//                 });
-
-	//             });
-
-	//         });
-
-	//     });
-	// }
-
 	if (window.innerWidth >= 993) {
+
 		const wrap = document.querySelector('.stages__wrap');
 		const shine = document.querySelector('.global-shine');
 
@@ -517,6 +458,7 @@
 		});
 
 		function getCoords(el) {
+
 			const wrapRect = wrap.getBoundingClientRect();
 			const rect = el.getBoundingClientRect();
 
@@ -524,126 +466,206 @@
 				x: rect.left - wrapRect.left,
 				y: rect.top - wrapRect.top
 			};
+
 		}
 
 		function updatePositions() {
+
 			return {
+
 				line1: getCoords(line1),
 				vertical1: getCoords(vertical1),
+
 				line2: getCoords(line2),
 				vertical2: getCoords(vertical2),
+
 				line3: getCoords(line3)
+
 			};
+
 		}
 
 		let pos = updatePositions();
 
 		window.addEventListener('resize', () => {
+
 			pos = updatePositions();
 			ScrollTrigger.refresh();
+
 		});
 
+		/*
+		========================================
+		TIMELINE
+		========================================
+		*/
+
 		const tl = gsap.timeline({
+
 			scrollTrigger: {
 				trigger: '.stages__wrap',
 				start: 'top 60%',
 				end: 'bottom bottom',
-				scrub: 3
+				scrub: 3,
+				once: true
 			}
+
 		});
 
+		/*
+		========================================
+		LINE 1 →
+		========================================
+		*/
+
 		tl.to(shine, {
+
 			x: pos.line1.x + line1.offsetWidth - 120,
 			duration: 4,
 			ease: 'none'
+
 		});
 
 		tl.to(icons1[0], {
+
 			opacity: 1,
 			scale: 1,
 			rotate: 0,
 			duration: 1,
 			ease: 'power3.out'
+
 		}, '-=3.2');
 
 		tl.to(icons1[1], {
+
 			opacity: 1,
 			scale: 1,
 			rotate: 0,
 			duration: 1,
 			ease: 'power3.out'
+
 		}, '-=2');
 
+		/*
+		========================================
+		DOWN ↓
+		========================================
+		*/
+
 		tl.to(shine, {
+
 			x: pos.vertical1.x,
 			y: pos.vertical1.y + vertical1.offsetHeight - 120,
+
 			duration: 2,
 			ease: 'none'
+
 		});
 
+		/*
+		========================================
+		LINE 2 ←
+		========================================
+		*/
+
 		tl.to(shine, {
+
 			x: pos.line2.x + line2.offsetWidth - 120,
 			y: pos.line2.y,
+
 			duration: 0.6,
 			ease: 'none'
+
 		});
 
 		tl.to(shine, {
+
 			x: pos.line2.x,
+
 			duration: 4,
 			ease: 'none'
+
 		});
 
 		tl.to(icons2[1], {
+
 			opacity: 1,
 			scale: 1,
 			rotate: 0,
 			duration: 1,
 			ease: 'power3.out'
+
 		}, '-=3.2');
 
 		tl.to(icons2[0], {
+
 			opacity: 1,
 			scale: 1,
 			rotate: 0,
 			duration: 1,
 			ease: 'power3.out'
+
 		}, '-=2');
 
+		/*
+		========================================
+		DOWN ↓
+		========================================
+		*/
+
 		tl.to(shine, {
+
 			x: pos.vertical2.x,
 			y: pos.vertical2.y + vertical2.offsetHeight - 120,
+
 			duration: 2,
 			ease: 'none'
+
 		});
 
+		/*
+		========================================
+		LINE 3 →
+		========================================
+		*/
+
 		tl.to(shine, {
+
 			x: pos.line3.x,
 			y: pos.line3.y,
+
 			duration: 0.6,
 			ease: 'none'
+
 		});
 
 		tl.to(shine, {
-			x: pos.line3.x + line3.offsetWidth - 0,
+
+			x: pos.line3.x + line3.offsetWidth,
 			duration: 4,
 			ease: 'none'
+
 		});
 
 		tl.to(icons3[0], {
+
 			opacity: 1,
 			scale: 1,
 			rotate: 0,
 			duration: 1,
 			ease: 'power3.out'
+
 		}, '-=3.2');
 
 		tl.to(icons3[1], {
+
 			opacity: 1,
 			scale: 1,
 			rotate: 0,
 			duration: 1,
 			ease: 'power3.out'
+
 		}, '-=2');
+
 	}
 </script>
