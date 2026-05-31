@@ -109,8 +109,8 @@
 						<div class="services__cards services__cards--4">
 							<div class="service-card">
 								<div class="service-card__img">
-									<img src="img/services-img16.jpg" alt="">
-									<img src="img/services-img16-1.jpg" alt="">
+									<img src="img/services-img16.png" alt="">
+									<img src="img/services-img16-1.png" alt="">
 								</div>
 								<div class="service-card__desc">
 									<div class="service-card__title text32">Сравниваемые <br> результаты тендера</div>
@@ -123,8 +123,8 @@
 							</div>
 							<div class="service-card">
 								<div class="service-card__img">
-									<img src="img/services-img17.jpg" alt="">
-									<img src="img/services-img17-1.jpg" alt="">
+									<img src="img/services-img17.png" alt="">
+									<img src="img/services-img17-1.png" alt="">
 								</div>
 								<div class="service-card__desc">
 									<div class="service-card__title text32">Независимая <br> экспертиза</div>
@@ -136,8 +136,8 @@
 							</div>
 							<div class="service-card">
 								<div class="service-card__img">
-									<img src="img/services-img18.jpg" alt="">
-									<img src="img/services-img18-1.jpg" alt="">
+									<img src="img/services-img18.png" alt="">
+									<img src="img/services-img18-1.png" alt="">
 								</div>
 								<div class="service-card__desc">
 									<div class="service-card__title text32">Экономия ресурсов</div>
@@ -149,8 +149,8 @@
 							</div>
 							<div class="service-card">
 								<div class="service-card__img">
-									<img src="img/services-img19.jpg" alt="">
-									<img src="img/services-img19-1.jpg" alt="">
+									<img src="img/services-img19.png" alt="">
+									<img src="img/services-img19-1.png" alt="">
 								</div>
 								<div class="service-card__desc">
 									<div class="service-card__title text32">Доступ к рынку</div>
@@ -243,7 +243,11 @@
 							<span class="line-white"></span>
 						</span>
 					</div>
-					<span class="global-shine"></span>
+					<span class="global-shine shine-1"></span>
+					<span class="global-shine shine-2"></span>
+					<span class="global-shine shine-3"></span>
+					<span class="global-shine shine-4"></span>
+					<span class="global-shine shine-5"></span>
 				</div>
 			</section>
 			<section class="advantages2 gradient-2-2">
@@ -421,217 +425,219 @@
 </style>
 
 <script>
+
+
 	// Stages
-	if (window.innerWidth >= 993) {
+	// if (window.innerWidth >= 993) {
 
-		const wrap = document.querySelector('.stages__wrap');
-		const shine = document.querySelector('.global-shine');
+	// 	const wrap = document.querySelector('.stages__wrap');
+	// 	const shine = document.querySelector('.global-shine');
 
-		const groups = document.querySelectorAll('.stages__group');
+	// 	const groups = document.querySelectorAll('.stages__group');
 
-		const group1 = groups[0];
-		const group2 = groups[1];
-		const group3 = groups[2];
+	// 	const group1 = groups[0];
+	// 	const group2 = groups[1];
+	// 	const group3 = groups[2];
 
-		const line1 = group1.querySelector('.line-main');
-		const vertical1 = group1.querySelector('.line-glow-vertical');
+	// 	const line1 = group1.querySelector('.line-main');
+	// 	const vertical1 = group1.querySelector('.line-glow-vertical');
 
-		const line2 = group2.querySelector('.line-main');
-		const vertical2 = group2.querySelector('.line-glow-vertical');
+	// 	const line2 = group2.querySelector('.line-main');
+	// 	const vertical2 = group2.querySelector('.line-glow-vertical');
 
-		const line3 = group3.querySelector('.line-main');
+	// 	const line3 = group3.querySelector('.line-main');
 
-		const icons1 = group1.querySelectorAll('.stages__item-icon');
-		const icons2 = group2.querySelectorAll('.stages__item-icon');
-		const icons3 = group3.querySelectorAll('.stages__item-icon');
+	// 	const icons1 = group1.querySelectorAll('.stages__item-icon');
+	// 	const icons2 = group2.querySelectorAll('.stages__item-icon');
+	// 	const icons3 = group3.querySelectorAll('.stages__item-icon');
 
-		const allIcons = document.querySelectorAll('.stages__item-icon');
+	// 	const allIcons = document.querySelectorAll('.stages__item-icon');
 
-		gsap.set(allIcons, {
-			opacity: 0,
-			scale: 0.75,
-			rotate: -10
-		});
+	// 	gsap.set(allIcons, {
+	// 		opacity: 0,
+	// 		scale: 0.75,
+	// 		rotate: -10
+	// 	});
 
-		gsap.set(shine, {
-			opacity: 1,
-			x: -120,
-			y: 0
-		});
+	// 	gsap.set(shine, {
+	// 		opacity: 1,
+	// 		x: -120,
+	// 		y: 0
+	// 	});
 
-		function getCoords(el) {
+	// 	function getCoords(el) {
 
-			const wrapRect = wrap.getBoundingClientRect();
-			const rect = el.getBoundingClientRect();
+	// 		const wrapRect = wrap.getBoundingClientRect();
+	// 		const rect = el.getBoundingClientRect();
 
-			return {
-				x: rect.left - wrapRect.left,
-				y: rect.top - wrapRect.top
-			};
+	// 		return {
+	// 			x: rect.left - wrapRect.left,
+	// 			y: rect.top - wrapRect.top
+	// 		};
 
-		}
+	// 	}
 
-		function updatePositions() {
+	// 	function updatePositions() {
 
-			return {
+	// 		return {
 
-				line1: getCoords(line1),
-				vertical1: getCoords(vertical1),
+	// 			line1: getCoords(line1),
+	// 			vertical1: getCoords(vertical1),
 
-				line2: getCoords(line2),
-				vertical2: getCoords(vertical2),
+	// 			line2: getCoords(line2),
+	// 			vertical2: getCoords(vertical2),
 
-				line3: getCoords(line3)
+	// 			line3: getCoords(line3)
 
-			};
+	// 		};
 
-		}
+	// 	}
 
-		let pos = updatePositions();
+	// 	let pos = updatePositions();
 
-		window.addEventListener('resize', () => {
+	// 	window.addEventListener('resize', () => {
 
-			pos = updatePositions();
-			ScrollTrigger.refresh();
+	// 		pos = updatePositions();
+	// 		ScrollTrigger.refresh();
 
-		});
+	// 	});
 
-		const tl = gsap.timeline({
+	// 	const tl = gsap.timeline({
 
-			scrollTrigger: {
-				trigger: '.stages__wrap',
-				start: 'top 60%',
-				end: 'bottom bottom',
-				scrub: 3,
-				once: true
-			}
+	// 		scrollTrigger: {
+	// 			trigger: '.stages__wrap',
+	// 			start: 'top 60%',
+	// 			end: 'bottom bottom',
+	// 			scrub: 3,
+	// 			once: true
+	// 		}
 
-		});
+	// 	});
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.line1.x + line1.offsetWidth - 120,
-			duration: 4,
-			ease: 'none'
+	// 		x: pos.line1.x + line1.offsetWidth - 120,
+	// 		duration: 4,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(icons1[0], {
+	// 	tl.to(icons1[0], {
 
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			duration: 1,
-			ease: 'power3.out'
+	// 		opacity: 1,
+	// 		scale: 1,
+	// 		rotate: 0,
+	// 		duration: 1,
+	// 		ease: 'power3.out'
 
-		}, '-=3.2');
+	// 	}, '-=3.2');
 
-		tl.to(icons1[1], {
+	// 	tl.to(icons1[1], {
 
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			duration: 1,
-			ease: 'power3.out'
+	// 		opacity: 1,
+	// 		scale: 1,
+	// 		rotate: 0,
+	// 		duration: 1,
+	// 		ease: 'power3.out'
 
-		}, '-=2');
+	// 	}, '-=2');
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.vertical1.x,
-			y: pos.vertical1.y + vertical1.offsetHeight - 120,
+	// 		x: pos.vertical1.x,
+	// 		y: pos.vertical1.y + vertical1.offsetHeight - 120,
 
-			duration: 2,
-			ease: 'none'
+	// 		duration: 2,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.line2.x + line2.offsetWidth - 120,
-			y: pos.line2.y,
+	// 		x: pos.line2.x + line2.offsetWidth - 120,
+	// 		y: pos.line2.y,
 
-			duration: 0.6,
-			ease: 'none'
+	// 		duration: 0.6,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.line2.x,
+	// 		x: pos.line2.x,
 
-			duration: 4,
-			ease: 'none'
+	// 		duration: 4,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(icons2[1], {
+	// 	tl.to(icons2[1], {
 
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			duration: 1,
-			ease: 'power3.out'
+	// 		opacity: 1,
+	// 		scale: 1,
+	// 		rotate: 0,
+	// 		duration: 1,
+	// 		ease: 'power3.out'
 
-		}, '-=3.2');
+	// 	}, '-=3.2');
 
-		tl.to(icons2[0], {
+	// 	tl.to(icons2[0], {
 
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			duration: 1,
-			ease: 'power3.out'
+	// 		opacity: 1,
+	// 		scale: 1,
+	// 		rotate: 0,
+	// 		duration: 1,
+	// 		ease: 'power3.out'
 
-		}, '-=2');
+	// 	}, '-=2');
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.vertical2.x,
-			y: pos.vertical2.y + vertical2.offsetHeight - 120,
+	// 		x: pos.vertical2.x,
+	// 		y: pos.vertical2.y + vertical2.offsetHeight - 120,
 
-			duration: 2,
-			ease: 'none'
+	// 		duration: 2,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.line3.x,
-			y: pos.line3.y,
+	// 		x: pos.line3.x,
+	// 		y: pos.line3.y,
 
-			duration: 0.6,
-			ease: 'none'
+	// 		duration: 0.6,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(shine, {
+	// 	tl.to(shine, {
 
-			x: pos.line3.x + line3.offsetWidth,
-			duration: 4,
-			ease: 'none'
+	// 		x: pos.line3.x + line3.offsetWidth,
+	// 		duration: 4,
+	// 		ease: 'none'
 
-		});
+	// 	});
 
-		tl.to(icons3[0], {
+	// 	tl.to(icons3[0], {
 
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			duration: 1,
-			ease: 'power3.out'
+	// 		opacity: 1,
+	// 		scale: 1,
+	// 		rotate: 0,
+	// 		duration: 1,
+	// 		ease: 'power3.out'
 
-		}, '-=3.2');
+	// 	}, '-=3.2');
 
-		tl.to(icons3[1], {
+	// 	tl.to(icons3[1], {
 
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			duration: 1,
-			ease: 'power3.out'
+	// 		opacity: 1,
+	// 		scale: 1,
+	// 		rotate: 0,
+	// 		duration: 1,
+	// 		ease: 'power3.out'
 
-		}, '-=2');
+	// 	}, '-=2');
 
-	}
+	// }
 </script>
