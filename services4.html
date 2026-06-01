@@ -243,11 +243,13 @@
 							<span class="line-white"></span>
 						</span>
 					</div>
-					<span class="global-shine shine-1"></span>
-					<span class="global-shine shine-2"></span>
-					<span class="global-shine shine-3"></span>
-					<span class="global-shine shine-4"></span>
-					<span class="global-shine shine-5"></span>
+					<div class="stages-path__wrap">
+						<svg class="stages-path" viewBox="0 0 1489 797" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path id="stagesPath" d="M0.5 0.5 H1487.5 V398 H0.5 V797.5 H1488" stroke="#fff" stroke-width="1"
+								fill="none" />
+						</svg>
+					</div>
+					<span class="global-shine"></span>
 				</div>
 			</section>
 			<section class="advantages2 gradient-2-2">
@@ -410,10 +412,11 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js"></script>
 <script src="js/libs.min.js"></script>
 <script src="js/main.min.js"></script>
-
 </body>
 
 </html>
@@ -425,9 +428,74 @@
 </style>
 
 <script>
+	window.addEventListener("load", () => {
+
+		const wrap = document.querySelector(".stages__wrap");
+		const shine = document.querySelector(".global-shine");
+		const icons = document.querySelectorAll(".stages__item-icon");
+
+		let played = false;
+
+		gsap.set(icons, {
+			opacity: 0,
+			scale: 0.75,
+			rotate: -10
+		});
+
+		gsap.set(icons[0], {
+			opacity: 1,
+			scale: 1,
+			rotate: 0
+		});
+
+		gsap.set(shine, {
+			opacity: 1
+		});
+
+		const tl = gsap.timeline({
+			paused: true,
+			repeat: 0,
+			defaults: { ease: "none" }
+		});
+
+		tl.to(shine, {
+			duration: 6,
+			motionPath: {
+				path: "#stagesPath",
+				align: "#stagesPath",
+				alignOrigin: [0.5, 0.5],
+				autoRotate: true
+			}
+		}, 0);
+
+		tl.to(icons[1], { opacity: 1, scale: 1, rotate: 0, duration: 0.2 }, 0.8);
+		tl.to(icons[3], { opacity: 1, scale: 1, rotate: 0, duration: 0.2 }, 2.8);
+		tl.to(icons[2], { opacity: 1, scale: 1, rotate: 0, duration: 0.2 }, 3.4);
+		tl.to(icons[4], { opacity: 1, scale: 1, rotate: 0, duration: 0.2 }, 4.9);
+		tl.to(icons[5], { opacity: 1, scale: 1, rotate: 0, duration: 0.2 }, 5.6);
+
+		tl.to(shine, {
+			opacity: 0,
+			duration: 0.2
+		});
+
+		ScrollTrigger.create({
+			trigger: wrap,
+			start: "top 60%",
+
+			toggleActions: "play none none none",
+
+			onEnter: () => {
+				if (played) return;
+				played = true;
+				tl.play(0);
+			}
+		});
+
+	});
 
 
-	// Stages
+	//Stages
 	// if (window.innerWidth >= 993) {
 
 	// 	const wrap = document.querySelector('.stages__wrap');
